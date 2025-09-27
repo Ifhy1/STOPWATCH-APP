@@ -1,8 +1,11 @@
-// Get elements
+// Elements
 const display = document.getElementById("display");
 const startBtn = document.getElementById("startBtn");
 const stopBtn = document.getElementById("stopBtn");
 const resetBtn = document.getElementById("resetBtn");
+const lapBtn = document.getElementById("lapBtn");
+const lapsList = document.getElementById("lapsList");
+const themeBtn = document.getElementById("themeBtn");
 
 // Time variables
 let hours = 0;
@@ -54,12 +57,31 @@ function resetTimer() {
   minutes = 0;
   seconds = 0;
   updateDisplay();
+  lapsList.innerHTML = ""; // clear laps
+}
+
+// Add Lap
+function addLap() {
+  if (isRunning) {
+    const lapTime = display.textContent;
+    const li = document.createElement("li");
+    li.textContent = `Lap ${lapsList.children.length + 1}: ${lapTime}`;
+    lapsList.appendChild(li);
+  }
+}
+
+// Theme toggle
+function toggleTheme() {
+  document.body.classList.toggle("light");
+  themeBtn.textContent = document.body.classList.contains("light") ? "☀️" : "🌙";
 }
 
 // Event listeners
 startBtn.addEventListener("click", startTimer);
 stopBtn.addEventListener("click", stopTimer);
 resetBtn.addEventListener("click", resetTimer);
+lapBtn.addEventListener("click", addLap);
+themeBtn.addEventListener("click", toggleTheme);
 
 // Initial display
 updateDisplay();

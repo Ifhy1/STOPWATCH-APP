@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Light/Dark toggle bottom-left -->
+  <button id="themeBtn" class="theme-toggle" aria-label="Toggle Theme">🌙</button>
+
   <main class="container">
     <h1 class="title">Stopwatch</h1>
 
@@ -18,6 +21,13 @@
       <button id="startBtn" class="btn start">Start</button>
       <button id="stopBtn" class="btn stop">Stop</button>
       <button id="resetBtn" class="btn reset">Reset</button>
+      <button id="lapBtn" class="btn lap">Lap</button>
+    </div>
+
+    <!-- Laps Panel -->
+    <div id="lapsContainer" class="laps-container">
+      <h2>Laps</h2>
+      <ul id="lapsList"></ul>
     </div>
   </main>
 
