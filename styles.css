@@ -65,6 +65,7 @@ body.light .display {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .btn {
@@ -101,32 +102,27 @@ body.light .btn {
   filter: brightness(1.1);
 }
 
-/* Laps Panel */
-.laps-container {
-  position: absolute;
-  right: -200px;
-  top: 0;
-  width: 180px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 0.5rem;
-  padding: 1rem;
+/* Laps under the buttons */
+.laps-wrapper {
+  display: none; /* hidden by default */
+  margin-top: 1rem;
   text-align: left;
+  max-height: 150px;
   overflow-y: auto;
-  transition: right 0.4s ease, background 0.4s ease;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: background 0.4s ease;
 }
 
-body.light .laps-container {
+body.light .laps-wrapper {
   background: rgba(0, 0, 0, 0.05);
 }
 
-.laps-container.open {
-  right: -200px; /* adjust when open if needed */
-}
-
-.laps-container h2 {
+.laps-wrapper h2 {
   font-size: 1rem;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 #lapsList {
@@ -186,3 +182,4 @@ body.light .theme-toggle {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
